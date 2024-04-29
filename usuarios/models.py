@@ -2,6 +2,7 @@ from django.db import models
 from django.contrib.auth.models import AbstractBaseUser, BaseUserManager, PermissionsMixin
 from django.utils.translation import gettext_lazy as _
 
+
 class CustomUserManager(BaseUserManager):
     def create_user(self, email, password=None, **extra_fields):
         if not email:
@@ -48,6 +49,7 @@ class Teacher(UserN):
 
 class Student(UserN):
     matricula_active=models.BooleanField(default=False, null=False)
+    #inscipcion=models.ManyToManyField(Materia, null=False, related_name='inscripcion_materia_estudiante')
 
 
 
